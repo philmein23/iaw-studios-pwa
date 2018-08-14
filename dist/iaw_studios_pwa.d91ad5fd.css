@@ -1,0 +1,93 @@
+@import url('https://use.typekit.net/qmq0znp.css');
+body,
+html {
+  height: 100%;
+  width: 100%;
+  font-family: freight-sans-pro, proxima-nova, sans-serif;
+  background: rgb(237, 235, 235, 100%);
+}
+
+*,
+*::before,
+*::after {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  -webkit-transition: all 0.3s cubic-bezier(0.2, 0, 0.4, 1);
+  transition: all 0.3s cubic-bezier(0.2, 0, 0.4, 1);
+}
+
+@media (max-width: 1024px) {
+  .ui-header {
+    display: flex;
+    flex-direction: column;
+  }
+  .ui-header>.main-nav {
+    grid-auto-columns: max-content;
+    justify-content: center;
+  }
+}
+
+.ui-app {
+  margin: 0 auto;
+  width: 50rem;
+  max-width: 90vw;
+  height: calc(100vh - 10rem);
+}
+
+.ui-app[data-state='image'] * {
+  opacity: 0.4;
+}
+
+.ui-app[data-state='image'] .ui-image-detail,
+.ui-app[data-state='image'] .ui-image-detail * {
+  opacity: 1;
+}
+
+.ui-item {
+  object-fit: contain;
+  object-position: top;
+  height: 15rem;
+  -webkit-animation: item 0.5s calc(var(--i, 0) * 0.05s) cubic-bezier(0.5, 0, 0.2, 1) both;
+  animation: item 0.5s calc(var(--i, 0) * 0.05s) cubic-bezier(0.5, 0, 0.2, 1) both;
+}
+
+.ui-items:hover .ui-item {
+  opacity: 0.6;
+}
+
+.ui-items:hover .ui-item:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.ui-image-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ui-image {
+  height: 70vh;
+}
+
+@keyframes item {
+  from {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
